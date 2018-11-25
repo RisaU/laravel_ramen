@@ -4,7 +4,10 @@
 @section('content')
   <h1>
     Articles
-  <a href="{{ asset('articles/create') }}" class="btn btn-primary float-right">Add New</a>
+    @auth
+     {{-- able to edit, if login --}}
+      <a href="{{ asset('articles/create') }}" class="btn btn-primary float-right">Add New</a>
+    @endauth
   </h1>
   <hr />
   @foreach($articles as $article)

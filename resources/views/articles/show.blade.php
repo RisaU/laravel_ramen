@@ -9,17 +9,19 @@
   </article>
   <br />
   <div class="">
-    <a href="{{ action('ArticlesController@edit',
-                [$article->id]) }}"
-                class="btn btn-primary"
-    >Edit
-    </a>
-    {{-- delete btn --}}
-    {!! delete_form(['articles', $article->id]) !!}
+    @auth
+      <a href="{{ action('ArticlesController@edit',
+                  [$article->id]) }}"
+                  class="btn btn-primary"
+      >Edit
+      </a>
+      {{-- delete btn --}}
+      {!! delete_form(['articles', $article->id]) !!}
+    @endauth
 
     <a href="{{ action('ArticlesController@index') }}"
       class="btn btn-secondary float-right"
       >Go back to Article lists
-  </a>
+    </a>
   </div>
 @endsection
