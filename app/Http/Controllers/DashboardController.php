@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+// use App\Point;
 
 class DashboardController extends Controller
 {
@@ -23,7 +25,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // return view('home');
-        return view('dashboard');
+      $user = Auth::user();
+      // $point = Point::findOrFail($userid);
+      $point = \App\Point::where('user_id', '=', $user->id)->get();
+      // dd($point[0]->total_point);
+      // return view('home');
+      return view('dashboard', compact('user', 'point'));
     }
 }
