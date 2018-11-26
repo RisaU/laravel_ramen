@@ -2,7 +2,7 @@
     <div class="container">
       <!-- ブランド表示 -->
       <a class="navbar-brand" href="{{ route('home') }}">
-        <img alt="logo" src="{{ asset('/images/logo.png') }}" width="40" height="40">
+        <img alt="logo" src="{{ asset('/images/logo.png') }}" width="30" height="30">
       </a>
       <!-- スマホやタブレットで表示した時のメニューボタン -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
