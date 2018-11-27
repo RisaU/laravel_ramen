@@ -28,8 +28,10 @@ class DashboardController extends Controller
       $user = Auth::user();
       // $point = Point::findOrFail($userid);
       $point = \App\Point::where('user_id', '=', $user->id)->get();
-      // dd($point[0]->total_point);
-      // return view('home');
-      return view('dashboard', compact('user', 'point'));
+      $histories = \App\PointHistory::where('user_id', '=', $user->id)->get();
+      // dd($hoge);
+
+
+      return view('dashboard', compact('user', 'point', 'histories'));
     }
 }

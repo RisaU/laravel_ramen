@@ -13,16 +13,37 @@
                             {{ session('status') }}
                         </div>
           @endif
-          Hello, {{ $user->name }} !
+          {{-- Hello, {{ $user->name }} ! --}}
+{{-- {{ $errors->has('lastname') ? ' is-invalid' : '' }} --}}
+          You have <span style="font-size:200%;font-weight:bold;">{{ isset($point[0]) ? $point[0]->total_point : '0' }}</span>
+          @if( isset($point[0]) && $point[0]->total_point > 1) points
+          @else point
+          @endif
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            You have <span style="font-size:200%;font-weight:bold;">{{ $point[0]->total_point }}</span>
-            @if($point[0]->total_point > 1) points
-            @else point
-            @endif
-          </li>
-        </ul>
+        <div class="card">
+          <div class="card-header">
+            History
+          </div>
+        <table class="table table-hover">
+          <thead><th>Time</th><th>Point</th><th>Action</th></thead>
+          <tbody>
+          @if(empty($histories[0]))
+            {{-- <td class="list-group-item"> -- </td> --}}
+          @else
+            @foreach($histories as $history)
+            <tr>
+              <td>{{ $history->created_at }}</td><td>{{ $history->total_point }}</td>
+              @if ($history->point_action_flg = 1) <td>Get Point</td>
+              @else <td>Use Point</td>
+              @endif
+
+            </tr>
+            @endforeach
+          @endif
+          </tbody>
+        </table>
+
+        </div>
       </div>
     </div>
   </div>
