@@ -28,14 +28,13 @@
           <thead><th>Time</th><th>Point</th><th>Action</th></thead>
           <tbody>
           @if(empty($histories[0]))
-            {{-- <td class="list-group-item"> -- </td> --}}
+            <td>--</td><td>--</td><td>--</td>
           @else
             @foreach($histories as $history)
             <tr>
-              <td>{{ $history->created_at }}</td><td>{{ $history->total_point }}</td>
-              @if ($history->point_action_flg = 1) <td>Get Point</td>
-              @else <td>Use Point</td>
-              @endif
+              <td>{{ $history->created_at }}</td>
+              <td>{{ ($history->total_point >0) ? "+" : "" }}{{ $history->total_point }}</td>
+              <td>{{ ($history->point_action_flg == 1) ? "Get" : "Use" }} Point</td>
 
             </tr>
             @endforeach
