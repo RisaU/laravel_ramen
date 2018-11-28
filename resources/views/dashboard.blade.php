@@ -35,7 +35,6 @@
               <td>{{ $history->created_at }}</td>
               <td>{{ ($history->total_point >0) ? "+" : "" }}{{ $history->total_point }}</td>
               <td>{{ ($history->point_action_flg == 1) ? "Get" : "Use" }} Point</td>
-
             </tr>
             @endforeach
           @endif
