@@ -25,7 +25,7 @@
             History
           </div>
         <table class="table table-hover">
-          <thead><th>Time</th><th>Point</th><th>Action</th></thead>
+          <thead><th>Date</th><th>Point</th><th>Action</th></thead>
           <tbody>
           @if(empty($histories[0]))
             <td>--</td><td>--</td><td>--</td>

@@ -34,6 +34,7 @@ html, body {
 
 .title {
   font-size: 84px;
+  text-shadow: 4px 2px 3px #ece5e8;
 }
 
 .links > a {
@@ -48,4 +49,11 @@ html, body {
 
 .m-b-md {
   margin-bottom: 30px;
+}
+#heroimage {
+  background-image: url("/images/hero.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
